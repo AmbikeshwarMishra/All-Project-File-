@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix - Payment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { netflixRed: '#E50914' } } } }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen bg-[#141414] text-white">
+    <div class="mx-auto flex min-h-screen max-w-5xl flex-col justify-center px-4 py-8 md:px-8">
+        <div class="rounded-2xl border border-gray-700 bg-black/80 p-6 shadow-2xl md:p-10">
+            <p class="text-sm uppercase tracking-[0.25em] text-[#e50914] font-semibold">Step 3 of 3</p>
+            <h1 class="mt-2 text-3xl font-bold">Set up your payment</h1>
+            <p class="mt-2 text-sm text-gray-400">Your plan is ready. Add a secure payment method to start streaming.</p>
+
+            <div class="mt-6 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+                <div class="rounded-xl border border-gray-700 bg-[#1b1b1b] p-5">
+                    <h2 class="text-xl font-semibold">Payment method</h2>
+                    <div class="mt-4 space-y-3">
+                        <input class="w-full rounded bg-[#333] px-4 py-3 outline-none" placeholder="Card number" />
+                        <div class="grid gap-3 sm:grid-cols-2">
+                            <input class="w-full rounded bg-[#333] px-4 py-3 outline-none" placeholder="MM/YY" />
+                            <input class="w-full rounded bg-[#333] px-4 py-3 outline-none" placeholder="CVV" />
+                        </div>
+                        <input class="w-full rounded bg-[#333] px-4 py-3 outline-none" placeholder="Cardholder name" />
+                    </div>
+                </div>
+
+                <div class="rounded-xl border border-gray-700 bg-[#1b1b1b] p-5">
+                    <h2 class="text-xl font-semibold">Order summary</h2>
+                    <div class="mt-4 space-y-2 text-sm text-gray-300">
+                        <div class="flex justify-between"><span>Plan</span><span id="plan-name">Standard</span></div>
+                        <div class="flex justify-between"><span>Price</span><span id="plan-price">₹499/mo</span></div>
+                        <div class="flex justify-between border-t border-gray-700 pt-3 font-semibold text-white"><span>Total</span><span id="plan-total">₹499/mo</span></div>
+                    </div>
+                    <button id="pay-btn" class="mt-6 w-full rounded bg-netflixRed px-4 py-3 font-semibold hover:bg-red-700">Start Membership</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script>
+        const session = JSON.parse(localStorage.getItem('netflix_pro_session') || '{}');
+        const planName = session.plan || 'Standard';
+        const prices = { Basic: '₹199/mo', Standard: '₹499/mo', Premium: '₹649/mo' };
+        document.getElementById('plan-name').textContent = planName;
+        document.getElementById('plan-price').textContent = prices[planName] || prices.Standard;
+        document.getElementById('plan-total').textContent = prices[planName] || prices.Standard;
+
+        document.getElementById('pay-btn').addEventListener('click', () => {
+            session.paid = true;
+            localStorage.setItem('netflix_pro_session', JSON.stringify(session));
+            window.location.href = 'browse.html';
+        });
+    </script>
+</body>
+</html>

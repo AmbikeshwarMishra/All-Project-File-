@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Netflix</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { netflixDark: '#141414' } } } }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#141414] overflow-x-hidden text-white min-h-screen">
+
+    <!-- Sticky Navbar with Scroll Effect -->
+    <nav id="navbar" class="fixed w-full z-50 bg-gradient-to-b from-black/80 to-transparent transition-colors duration-500 px-4 md:px-12 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-10">
+            <svg class="w-24 text-[#E50914] fill-current" viewBox="0 0 111 30"><path d="M105.062 14.28L111 30C104.062 28.2 97.125 26.4 90.187 24.6L94.5 13.92L88.937 0H96.437L99.75 8.7L103.312 0H111L105.062 14.28ZM77.25 21.48C81.375 22.14 85.312 22.86 89.25 23.64L87.562 30C80.625 28.56 73.687 27.24 66.75 26.1L69 0H76.312L77.25 21.48ZM63 25.5C56.062 24.48 49.312 23.58 42.562 22.8L44.25 0H51.562L50.25 18.06C54.375 18.54 58.5 19.08 62.625 19.68L63 25.5ZM37.687 22.26L35.812 30C29.062 29.28 22.125 28.68 15.187 28.14L15.375 22.14C19.312 22.38 23.25 22.68 27.187 23.04L27.75 14.46C24 14.22 20.25 14.04 16.5 13.86L16.875 8.04C20.625 8.16 24.375 8.28 28.125 8.46L28.687 0H36.187L35.25 8.7C39 9 42.75 9.36 46.5 9.78L46.125 15.6C42.375 15.24 38.625 14.88 34.875 14.58L34.125 23.04C35.312 23.1 36.5 23.16 37.687 22.26ZM15 28.14L7.5 27.72V0H15V28.14ZM0 27.42L7.312 11.22L7.687 27.66C5.062 27.6 2.5 27.54 0 27.42ZM2.062 0H8.812L14.437 14.34L14.25 0H21.375V30L15.187 30L8.25 13.08L8.062 30H0V0H2.062Z"/></svg>
+            <ul class="hidden lg:flex gap-5 text-sm font-medium">
+                <li class="cursor-pointer font-bold">Home</li>
+                <li class="text-[#e5e5e5] hover:text-[#b3b3b3] cursor-pointer transition">TV Shows</li>
+                <li class="text-[#e5e5e5] hover:text-[#b3b3b3] cursor-pointer transition">Movies</li>
+                <li class="text-[#e5e5e5] hover:text-[#b3b3b3] cursor-pointer transition">My List</li>
+            </ul>
+        </div>
+        <div class="flex items-center gap-6">
+            <svg class="w-6 h-6 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            <div class="relative group cursor-pointer">
+                <div class="flex items-center gap-2 rounded-full border border-gray-700 bg-black/60 px-3 py-1">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt="Profile" class="w-8 h-8 rounded">
+                    <span id="user-email" class="text-sm text-gray-200"></span>
+                </div>
+                <div class="absolute right-0 top-10 mt-2 w-40 bg-black border border-gray-700 rounded hidden group-hover:block p-2 z-50">
+                    <button onclick="logoutUser()" class="w-full text-left px-2 py-1 hover:underline text-sm">Sign out</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Billboard (Hero Section) -->
+    <div class="relative w-full h-[60vh] md:h-[85vh] bg-[url('https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center">
+        <!-- Vignette Effect -->
+        <div class="absolute inset-0 bg-gradient-to-r from-[#141414] via-[#141414]/50 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#141414] via-transparent to-transparent"></div>
+        
+        <div class="absolute top-[30%] md:top-[40%] left-6 md:left-12 max-w-lg md:max-w-2xl">
+            <h1 class="text-4xl md:text-6xl font-black drop-shadow-2xl uppercase tracking-widest mb-4">Stranger Things</h1>
+            <p class="text-sm md:text-lg text-white drop-shadow-md mb-6 line-clamp-3">
+                When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces and one strange little girl.
+            </p>
+            <div class="flex gap-3 text-lg font-bold">
+                <button class="bg-white text-black px-6 md:px-8 py-2 md:py-3 rounded flex items-center gap-2 hover:bg-white/80 transition shadow-lg">
+                    <svg class="w-6 h-6" fill="black" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Play
+                </button>
+                <button class="bg-[#6d6d6eb3] text-white px-6 md:px-8 py-2 md:py-3 rounded flex items-center gap-2 hover:bg-[#6d6d6e] transition shadow-lg">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> More Info
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Movie Rows (Injected via JS) -->
+    <main id="movie-container" class="relative z-20 -mt-16 md:-mt-32 pb-20"></main>
+
+    <footer class="border-t border-[#232323] bg-black px-6 py-12 md:px-16 lg:px-24">
+        <div class="mx-auto max-w-7xl text-sm text-gray-400">
+            <p class="mb-6">Questions? Call 000-800-919-1694</p>
+            <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                <a href="#" class="hover:text-white">FAQ</a>
+                <a href="#" class="hover:text-white">Help Centre</a>
+                <a href="#" class="hover:text-white">Terms of Use</a>
+                <a href="#" class="hover:text-white">Privacy</a>
+                <a href="#" class="hover:text-white">Cookie Preferences</a>
+                <a href="#" class="hover:text-white">Corporate Information</a>
+                <a href="#" class="hover:text-white">Media Centre</a>
+                <a href="#" class="hover:text-white">Account</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/auth.js"></script>
+    <script src="js/movies.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const session = JSON.parse(localStorage.getItem('netflix_pro_session') || '{}');
+            const emailEl = document.getElementById('user-email');
+            if (emailEl && session.email) {
+                emailEl.textContent = session.email.split('@')[0];
+            }
+        });
+    </script>
+</body>
+</html>

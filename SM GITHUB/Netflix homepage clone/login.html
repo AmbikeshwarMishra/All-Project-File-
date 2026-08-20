@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix - Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { netflixRed: '#E50914' } } } }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-black text-white h-screen">
+    <!-- Background -->
+    <div class="fixed inset-0 z-0">
+        <img src="https://assets.nflxext.com/ffe/siteui/vlv3/9d3533b2-0e2b-40b2-95e0-eca797977fa2/f9630cce-7da3-4bf0-b186-b4bcba4c6e91/IN-en-20240311-popsignuptwoweeks-perspective_alpha_website_large.jpg" class="w-full h-full object-cover opacity-50 hidden md:block">
+        <div class="absolute inset-0 bg-black md:bg-black/60"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="relative z-10 px-6 py-4">
+        <a href="index.html">
+            <svg class="w-40 text-netflixRed fill-current" viewBox="0 0 111 30"><path d="M105.062 14.28L111 30C104.062 28.2 97.125 26.4 90.187 24.6L94.5 13.92L88.937 0H96.437L99.75 8.7L103.312 0H111L105.062 14.28ZM77.25 21.48C81.375 22.14 85.312 22.86 89.25 23.64L87.562 30C80.625 28.56 73.687 27.24 66.75 26.1L69 0H76.312L77.25 21.48ZM63 25.5C56.062 24.48 49.312 23.58 42.562 22.8L44.25 0H51.562L50.25 18.06C54.375 18.54 58.5 19.08 62.625 19.68L63 25.5ZM37.687 22.26L35.812 30C29.062 29.28 22.125 28.68 15.187 28.14L15.375 22.14C19.312 22.38 23.25 22.68 27.187 23.04L27.75 14.46C24 14.22 20.25 14.04 16.5 13.86L16.875 8.04C20.625 8.16 24.375 8.28 28.125 8.46L28.687 0H36.187L35.25 8.7C39 9 42.75 9.36 46.5 9.78L46.125 15.6C42.375 15.24 38.625 14.88 34.875 14.58L34.125 23.04C35.312 23.1 36.5 23.16 37.687 22.26ZM15 28.14L7.5 27.72V0H15V28.14ZM0 27.42L7.312 11.22L7.687 27.66C5.062 27.6 2.5 27.54 0 27.42ZM2.062 0H8.812L14.437 14.34L14.25 0H21.375V30L15.187 30L8.25 13.08L8.062 30H0V0H2.062Z"/></svg>
+        </a>
+    </header>
+
+    <!-- Login Box -->
+    <main class="relative z-10 flex justify-center pt-4 md:pt-16">
+        <div class="bg-black/80 w-full md:w-[450px] p-12 rounded md:min-h-[600px]">
+            <h1 class="text-[32px] font-bold mb-7">Sign In</h1>
+            <form id="login-form" class="flex flex-col gap-4">
+                <div class="relative">
+                    <input type="email" id="login-email" required class="peer w-full h-[50px] bg-[#333] rounded px-4 pt-3 text-white focus:outline-none focus:bg-[#454545] placeholder-transparent" placeholder="Email">
+                    <label class="floating-label absolute left-4 top-3.5 text-gray-400 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:top-3.5 peer-focus:top-1 peer-focus:text-[11px] peer-valid:top-1 peer-valid:text-[11px] pointer-events-none">Email or phone number</label>
+                </div>
+                <div class="relative">
+                    <input type="password" id="login-password" required class="peer w-full h-[50px] bg-[#333] rounded px-4 pt-3 text-white focus:outline-none focus:bg-[#454545] placeholder-transparent" placeholder="Password">
+                    <label class="floating-label absolute left-4 top-3.5 text-gray-400 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:top-3.5 peer-focus:top-1 peer-focus:text-[11px] peer-valid:top-1 peer-valid:text-[11px] pointer-events-none">Password</label>
+                </div>
+                <button type="submit" class="bg-netflixRed hover:bg-red-700 text-white font-bold py-3.5 rounded mt-6 transition">Sign In</button>
+                
+                <div class="flex justify-between text-[#B3B3B3] text-[13px] mt-2">
+                    <label class="flex items-center gap-1 cursor-pointer"><input type="checkbox" checked class="accent-gray-400"> Remember me</label>
+                    <a href="#" class="hover:underline">Need help?</a>
+                </div>
+            </form>
+            
+            <div class="mt-16 text-[#737373] text-base">
+                New to Netflix? <a href="index.html" class="text-white hover:underline font-medium">Sign up now.</a>
+            </div>
+            <p class="mt-3 text-[13px] text-[#8c8c8c]">
+                This page is protected by Google reCAPTCHA to ensure you're not a bot. <a href="#" class="text-[#0071eb] hover:underline">Learn more.</a>
+            </p>
+        </div>
+    </main>
+
+    <footer class="relative z-10 border-t border-gray-800 bg-black/80 px-6 py-8 text-sm text-gray-400 md:px-10">
+        <div class="mx-auto flex max-w-5xl flex-col gap-4 md:flex-row md:justify-between">
+            <p>Questions? Call 000-800-919-1694</p>
+            <div class="flex flex-wrap gap-4">
+                <a href="#" class="hover:text-white">FAQ</a>
+                <a href="#" class="hover:text-white">Help Centre</a>
+                <a href="#" class="hover:text-white">Terms of Use</a>
+                <a href="#" class="hover:text-white">Privacy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/auth.js"></script>
+    <script>
+        document.getElementById('login-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const pass = document.getElementById('login-password').value;
+            loginUser(email, pass); // Calls function from auth.js
+        });
+    </script>
+</body>
+</html>

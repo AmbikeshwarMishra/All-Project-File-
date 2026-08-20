@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix - Choose Your Plan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { netflixRed: '#E50914' } } } }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen bg-[#141414] text-white">
+    <div class="mx-auto flex min-h-screen max-w-6xl flex-col px-4 py-8 md:px-8 lg:px-12">
+        <div class="mb-8">
+            <p class="text-sm uppercase tracking-[0.25em] text-[#e50914] font-semibold">Step 2 of 3</p>
+            <h1 class="mt-2 text-3xl font-bold md:text-4xl">Choose the plan that’s right for you</h1>
+            <ul class="mt-4 space-y-2 text-sm text-gray-300 md:text-base">
+                <li>✔ Watch all you want. Ad-free.</li>
+                <li>✔ Recommendations tailored for you.</li>
+                <li>✔ Change or cancel your plan anytime.</li>
+            </ul>
+        </div>
+
+        <div class="grid gap-4 md:grid-cols-3">
+            <div class="rounded-xl border border-gray-700 bg-black/70 p-6">
+                <h2 class="text-xl font-semibold">Basic</h2>
+                <p class="mt-2 text-sm text-gray-400">Good for single-screen viewing.</p>
+                <p class="mt-4 text-3xl font-bold">₹199<span class="text-sm font-normal text-gray-400">/mo</span></p>
+                <button class="mt-6 w-full rounded bg-netflixRed px-4 py-3 font-semibold hover:bg-red-700" onclick="selectPlan('Basic')">Select</button>
+            </div>
+            <div class="rounded-xl border border-[#e50914] bg-[#1b1b1b] p-6 shadow-2xl">
+                <div class="inline-block rounded-full bg-[#e50914] px-3 py-1 text-xs font-semibold uppercase">Most Popular</div>
+                <h2 class="mt-4 text-xl font-semibold">Standard</h2>
+                <p class="mt-2 text-sm text-gray-400">Two screens at once in Full HD.</p>
+                <p class="mt-4 text-3xl font-bold">₹499<span class="text-sm font-normal text-gray-400">/mo</span></p>
+                <button class="mt-6 w-full rounded bg-netflixRed px-4 py-3 font-semibold hover:bg-red-700" onclick="selectPlan('Standard')">Select</button>
+            </div>
+            <div class="rounded-xl border border-gray-700 bg-black/70 p-6">
+                <h2 class="text-xl font-semibold">Premium</h2>
+                <p class="mt-2 text-sm text-gray-400">Ultra HD and 4 screens at once.</p>
+                <p class="mt-4 text-3xl font-bold">₹649<span class="text-sm font-normal text-gray-400">/mo</span></p>
+                <button class="mt-6 w-full rounded bg-netflixRed px-4 py-3 font-semibold hover:bg-red-700" onclick="selectPlan('Premium')">Select</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script>
+        function selectPlan(plan) {
+            const session = JSON.parse(localStorage.getItem('netflix_pro_session') || '{}');
+            session.plan = plan;
+            localStorage.setItem('netflix_pro_session', JSON.stringify(session));
+            window.location.href = 'payment.html';
+        }
+    </script>
+</body>
+</html>

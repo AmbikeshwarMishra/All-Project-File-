@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Student Management System</h1>
+            <div class="stats">
+                <p>Total Students: <span id="student-count">0</span></p>
+            </div>
+        </header>
+
+        <main>
+           
+            <section class="form-section">
+                <h2>Add / Edit Student</h2>
+                <form id="student-form">
+                    
+                    <input type="hidden" id="student-id">
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="e.g., John Doe" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="john@example.com" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" placeholder="e.g., 21" min="1" required>
+                        </div>
+                        <div class="form-group half">
+                            <label for="course">Course</label>
+                            <input type="text" id="course" placeholder="e.g., MCA" required>
+                        </div>
+                    </div>
+                    
+                    <div id="form-errors" class="error-msg"></div>
+                    <button type="submit" id="submit-btn">Add Student</button>
+                    <button type="button" id="cancel-btn" class="hidden">Cancel Edit</button>
+                </form>
+            </section>
+
+            
+            <section class="data-section">
+                <div class="controls">
+                    <input type="text" id="search-input" placeholder="Search by name or course...">
+                    <button id="sort-btn">Sort A-Z</button>
+                </div>
+                
+                <div class="table-responsive">
+                    <table id="student-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Age</th>
+                                <th>Course</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="student-list">
+            
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
