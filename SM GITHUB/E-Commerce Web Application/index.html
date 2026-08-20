@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla JS E-Commerce</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#home" class="logo">ShopVanilla</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#wishlist">Wishlist (<span id="wishlist-count">0</span>)</a></li>
+                <li><a href="#cart">Cart (<span id="cart-count">0</span>)</a></li>
+                <li><a href="#dashboard" id="nav-profile">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Area where JS injects views -->
+    <main id="app" class="container"></main>
+
+    <!-- Toast Notification Container -->
+    <div id="toast" class="toast hidden"></div>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
